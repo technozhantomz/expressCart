@@ -64,6 +64,7 @@
                     <option {{selectState '2' config.productsPerRow}}>2</option>
                     <option {{selectState '3' config.productsPerRow}}>3</option>
                     <option {{selectState '4' config.productsPerRow}}>4</option>
+                    <option {{selectState '5' config.productsPerRow}}>5</option>
                 </select>
                 <p class="help-block">{{ @root.__ "The number of products to be displayed across the page." }}</p>
             </div>
@@ -89,7 +90,7 @@
                 <p class="help-block">{{ @root.__ "Select the order in which the products should be sorted." }}</p>
             </div>
             <div class="form-group">
-                <label>Footer HTML</label>
+                <label>Footer</label>
                 <textarea class="form-control codemirrorArea" rows="5" id="footerHtml" name="footerHtml">{{footerHtml}}</textarea>
                 <input type="hidden" id="footerHtml_input" name="footerHtml_input">
             </div>

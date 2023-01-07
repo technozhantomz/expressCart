@@ -22,7 +22,7 @@
     "errorMessage": {
         "isNotEmpty": "This is my custom error message",
         "properties": {
-            "price": "Should be a full 2 decimal value. Eg: 10.99"
+            "price": "Should be a full 4 decimal value. Eg: 10.9999"
         }
     },
     "required": [

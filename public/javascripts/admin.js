@@ -902,7 +902,7 @@ function globalSearch(){
                 <div class="row">
                     <div class="col global-result-type gr-click"><i class="feather" data-feather="tag"></i> Product</div>
                     <div class="col global-result-detail gr-click">${value.productTitle}</div>
-                    <div class="col global-result-detail gr-click">${$('#currencySymbol').val()}${numeral(value.productPrice).format('0.00')}</div>
+                    <div class="col global-result-detail gr-click">${$('#currencySymbol').val()}${numeral(value.productPrice).format('0.00000')}</div>
                 </div>
             </li>`;
             $('#global-search-results').append(result);

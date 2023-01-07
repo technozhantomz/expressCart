@@ -40,6 +40,11 @@ const {
 } = require('../lib/payment-common.js');
 const countryList = getCountryList();
 
+const {
+    setupMpesa
+} = require('../lib/payment-common.js');
+const country2List = getCountryList();
+
 // Google products
 router.get('/googleproducts.xml', async (req, res, next) => {
     let productsFile = '';
@@ -189,49 +194,6 @@ router.get('/checkout/information', async (req, res, next) => {
     });
 });
 
-router.get('/checkout/shipping', async (req, res, next) => {
-    const config = req.app.config;
-
-    // if there is no items in the cart then render a failure
-    if(!req.session.cart){
-        req.session.message = 'The are no items in your cart. Please add some items before checking out';
-        req.session.messageType = 'danger';
-        res.redirect('/');
-        return;
-    }
-
-    if(!req.session.customerEmail){
-        req.session.message = 'Cannot proceed to shipping without customer information';
-        req.session.messageType = 'danger';
-        res.redirect('/checkout/information');
-        return;
-    }
-
-    // Net cart amount
-    const netCartAmount = req.session.totalCartAmount - req.session.totalCartShipping || 0;
-
-    // Recalculate shipping
-    config.modules.loaded.shipping.calculateShipping(
-        netCartAmount,
-        config,
-        req
-    );
-
-    // render the payment page
-    res.render(`${config.themeViews}checkout-shipping`, {
-        title: 'Checkout - Shipping',
-        config: req.app.config,
-        session: req.session,
-        cartClose: false,
-        cartReadOnly: true,
-        page: 'checkout-shipping',
-        countryList,
-        message: clearSessionValue(req.session, 'message'),
-        messageType: clearSessionValue(req.session, 'messageType'),
-        helpers: req.handlebars.helpers,
-        showFooter: 'showFooter'
-    });
-});
 
 router.get('/checkout/cart', (req, res) => {
     const config = req.app.config;
@@ -283,12 +245,20 @@ router.get('/checkout/payment', async (req, res) => {
         verifone = await setupVerifone(req);
         req.session.verifoneCheckout = verifone.id;
     }
+    // Setup mpesa if configured
+    let mpesa = {};
+    if(config.paymentGateway.includes('mpesa')){
+        mpesa = await setupMpesa(req);
+        req.session.verifoneCheckout = mpesa.id;
+    }
 
     res.render(`${config.themeViews}checkout-payment`, {
         title: 'Checkout - Payment',
         config: req.app.config,
         paymentConfig: getPaymentConfig(),
         verifone,
+        paymentConfig: getPaymentConfig(),
+        mpesa,
         session: req.session,
         paymentPage: true,
         paymentType,

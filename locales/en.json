@@ -8,7 +8,7 @@
 	"Settings": "Settings",
 	"General settings": "General settings",
 	"Address 1": "Address 1",
-	"Address 2": "Address 2",
+	"Address 2": "Blockchain Account Name",
 	"Country": "Country",
 	"State": "State",
 	"Postcode": "Postcode",
@@ -140,7 +140,7 @@
 	"User": "User",
 	"No products found": "No products found",
 	"Category": "Category",
-	"Search results": "Search results",
+	"Search results": "Deposit to",
 	"Add to cart": "Add to cart",
 	"Pay now": "Pay now",
 	"Customer details": "Customer details",
@@ -168,7 +168,7 @@
 	"Shipping options": "Shipping options",
 	"Proceed to payment": "Proceed to payment",
 	"Return to information": "Return to information",
-	"Search shop": "Search shop",
+	"Search shop": "Assets",
 	"Dashboard": "Dashboard",
 	"Create order": "Create order",
 	"Order shipping amount": "Order shipping amount",
@@ -241,5 +241,10 @@
 	"Currency": "Currency",
 	"Approved": "Approved",
 	"Transactions": "Transactions",
-	"Order": "Order"
+	"Order": "Order",
+	"Register": "Register",
+	"Assets": "Assets",
+	"Delete assets": "Delete assets",
+	"Delete asset": "Delete asset",
+	"Buy": "Buy"
 }

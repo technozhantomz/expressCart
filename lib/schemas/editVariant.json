@@ -13,7 +13,7 @@
         "title": {
             "type": "string",
             "isNotEmpty": true,
-            "minLength": 2
+            "minLength": 3
         },
         "price": {
             "type": "string",

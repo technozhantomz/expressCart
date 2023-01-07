@@ -40,11 +40,11 @@
         },
         "productsPerRow": {
             "type": "number",
-            "default": 3
+            "default": 4
         },
         "productsPerPage": {
             "type": "number",
-            "default": 6
+            "default": 8
         },
         "footerHtml": {
             "type": "string",
@@ -61,7 +61,7 @@
         },
         "currencySymbol": {
             "type": "string",
-            "default": "£"
+            "default": "$"
         },
         "currencyISO": {
             "type": "string",
@@ -107,6 +107,10 @@
                     {
                         "type": "string",
                         "enum": [ "verifone"]
+                    },
+                    {
+                        "type": "string",
+                        "enum": [ "mpesa"]
                     }
                 ]
             }
@@ -162,8 +166,8 @@
         },
         "productOrder": {
             "type": "string",
-            "enum": ["descending", "ascending"],
-            "default": "descending"
+            "enum": ["ascending", "descending"],
+            "default": "ascending"
         },
         "modules": {
             "type": "object",

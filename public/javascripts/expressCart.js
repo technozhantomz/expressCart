@@ -176,7 +176,7 @@ $(document).ready(function (){
                 }
             })
             .done(function(){
-                window.location = '/checkout/shipping';
+                window.location = '/checkout/payment';
             })
             .fail(function(msg){
                 showNotification(msg.responseJSON.message, 'danger');
@@ -468,6 +468,10 @@ $(document).ready(function (){
         });
     });
 
+     $('#customerRegister').on('click', function(e){
+        window.location.replace('/checkout/information');
+    });
+     
     // Create review
     $(document).on('click', '#addReview', function(e){
         $.ajax({
@@ -663,16 +667,16 @@ function updateCartDiv(){
         var cart = result.cart;
         var session = result.session;
         var productHtml = '';
-        var totalAmount = numeral(session.totalCartAmount).format('0.00');
+        var totalAmount = numeral(session.totalCartAmount).format('0.0000');
 
         // Work out the shipping
-        var shippingTotalAmt = numeral(session.totalCartShipping).format('0.00');
+        var shippingTotalAmt = numeral(session.totalCartShipping).format('0.0000');
         var shippingTotal = `${session.shippingMessage} :<strong id="shipping-amount">${result.currencySymbol}${shippingTotalAmt}</strong>`;
         if(session.totalCartShipping === 0){
             shippingTotal = `<span id="shipping-amount">${session.shippingMessage}</span>`;
         }
 
-        var discountTotalAmt = numeral(session.totalCartDiscount).format('0.00');
+        var discountTotalAmt = numeral(session.totalCartDiscount).format('0.0000');
         var discountTotal = '';
         if(session.totalCartDiscount > 0){
             discountTotal = `
@@ -687,7 +691,7 @@ function updateCartDiv(){
             Object.keys(cart).forEach(function(cartId){
                 var item = cart[cartId];
                 // Setup the product
-                var productTotalAmount = numeral(item.totalItemPrice).format('0.00');
+                var productTotalAmount = numeral(item.totalItemPrice).format('0.0000');
                 var variantHtml = '';
                 if(item.variantId){
                     variantHtml += `<strong>Option:</strong> ${item.variantTitle}`;

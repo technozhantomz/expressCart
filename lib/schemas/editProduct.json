@@ -52,7 +52,7 @@
     "errorMessage": {
         "isNotEmpty": "This is my custom error message",
         "properties": {
-            "productPrice": "Should be a full 2 decimal value. Eg: 10.99",
+            "productPrice": "Should be a full 4 decimal value. Eg: 10.9999",
             "productPublished": "Should be either true or false",
             "productComment": "Should be either true or false"
         }

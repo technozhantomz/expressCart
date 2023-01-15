@@ -65,7 +65,7 @@ test('[Success] Add a product', async t => {
     const product = {
         productPermalink: 'test-jacket',
         productTitle: 'Test Jacket',
-        productPrice: '100.00',
+        productPrice: '100.0000',
         productDescription: 'Test product description used to describe the product',
         productPublished: true,
         productTags: 'organic, jacket',
@@ -87,7 +87,7 @@ test('[Success] Add a product with incorrect GTIN', async t => {
     const product = {
         productPermalink: 'test-jacket-invalid-gtin',
         productTitle: 'Test Jacket',
-        productPrice: '100.00',
+        productPrice: '100.0000',
         productDescription: 'Test product description used to describe the product',
         productBrand: 'Test brand',
         productGtin: 'should be alpha',
@@ -111,7 +111,7 @@ test('[Fail] Add a product - Duplicate permalink', async t => {
     const product = {
         productPermalink: 'test-jacket',
         productTitle: 'Test Jacket - blue',
-        productPrice: '100.00',
+        productPrice: '100.0000',
         productDescription: 'Test product description used to describe the product',
         productBrand: 'Test brand',
         productPublished: true,
@@ -134,7 +134,7 @@ test('[Success] Update a product', async t => {
     const product = {
         productId: g.products[0]._id,
         productTitle: 'Test Jacket',
-        productPrice: '200.00',
+        productPrice: '200.0000',
         productDescription: 'Test product description used to describe the product',
         productBrand: 'Test brand',
         productPublished: true,
